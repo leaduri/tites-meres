@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Les tites mères – Tableau de bord</title>
+<link rel="icon" href="data:image/jpeg;base64,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">
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<style>
+  :root {
+    --font-anthropic-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-anthropic-serif: Georgia, "Times New Roman", serif;
+    --cds-gap-xs: 4px; --cds-gap-sm: 8px; --cds-gap-md: 12px; --cds-gap-lg: 20px; --cds-gap-xl: 28px;
+    --cds-pad-xs: 4px; --cds-pad-sm: 8px; --cds-pad-md: 12px; --cds-pad-lg: 18px; --cds-pad-xl: 28px;
+    --cds-radius: 10px; --cds-font-size-caption: 13px; --cds-font-size-body: 15px; --cds-font-size-heading: 17px; --cds-font-size-title: 28px;
+    --cds-font-weight-medium: 600; --cds-dur-slow: .3s;
+    --color-ok: #17864A; --color-bad: #C92A3A;
+    --cds-surface-popover: #FFFFFF; --cds-border: #D5DAE5; --cds-shadow-popover: 0 4px 16px rgba(0,0,0,.15); --cds-text-secondary: #5A5B78;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --color-ok: #5BD48F; --color-bad: #FF6B78; --cds-surface-popover: #1F2442; --cds-border: #353C63; --cds-text-secondary: #A3A8C6; }
+    .tm-tip { color: #EEF0FA; }
+  }
+  html, body { margin: 0; }
+  .tm { min-height: 100vh; box-sizing: border-box; max-width: 1280px; margin: 0 auto; }
+  body { background: #D6E4F5; }
+  @media (prefers-color-scheme: dark) { body { background: #0F1830; } }
+  .dash-skeleton { color: transparent !important; text-shadow: none !important; background: rgba(127,127,160,.25); border-radius: 4px; }
+  .tm-maj { color: var(--tm-muted); font-size: var(--cds-font-size-caption); }
+</style>
+<style>
+  .tm {
+    --tm-purple: #10069F; --tm-purple-ink: #10069F; --tm-orange: #F26B1D;
+    --tm-tile: #D6E4F5; --tm-joint: #BFD2EC;
+    --tm-card: #FFFFFF; --tm-ink: #15123B; --tm-muted: #5A5B78; --tm-rule: #DCE3EE;
+    --tm-head-ink: #FFFFFF; --tm-board: #0E0B2E; --tm-board-ink: #FF8A3D;
+    --tm-us: rgba(242, 107, 29, .14); --tm-line-red: #E0303F; --tm-line-blue: #6FA8FF;
+    --tm-c1: #10069F; --tm-c2: #F26B1D;
+    font-family: var(--font-anthropic-sans); color: var(--tm-ink);
+    display: flex; flex-direction: column; gap: var(--cds-gap-lg);
+    padding: var(--cds-pad-lg) clamp(12px, 3vw, 32px) var(--cds-pad-xl);
+    background-color: var(--tm-tile);
+    background-image:
+      radial-gradient(circle at 12px 12px, var(--tm-joint) 1.2px, transparent 1.6px),
+      linear-gradient(var(--tm-joint) 1px, transparent 1px),
+      linear-gradient(90deg, var(--tm-joint) 1px, transparent 1px);
+    background-size: 24px 24px, 24px 24px, 24px 24px;
+  }
+  @media (prefers-color-scheme: dark) {
+    .tm {
+      --tm-purple: #2A1FC4; --tm-purple-ink: #A49CFF; --tm-orange: #FF8A3D;
+      --tm-tile: #0F1830; --tm-joint: #1A2747;
+      --tm-card: #171C36; --tm-ink: #EEF0FA; --tm-muted: #A3A8C6; --tm-rule: #2A3152;
+      --tm-board: #07051A; --tm-board-ink: #FF9A55;
+      --tm-us: rgba(255, 138, 61, .18);
+      --tm-c1: #8F86FF; --tm-c2: #FF8A3D;
+    }
+  }
+  .tm-banner { position: relative; overflow: hidden; border-radius: var(--cds-radius); background: var(--tm-purple); color: var(--tm-head-ink); padding: var(--cds-pad-lg) var(--cds-pad-xl); }
+  .tm-rink { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .55; }
+  .tm-banner-row { position: relative; display: flex; gap: var(--cds-gap-lg); align-items: center; flex-wrap: wrap; }
+  .tm-logo { width: 72px; height: 72px; border-radius: 50%; border: 3px solid #FFFFFF; box-shadow: 0 0 0 3px var(--tm-orange); flex: none; object-fit: cover; }
+  .tm-banner-text { flex: 1 1 16rem; min-width: 0; }
+  .tm-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; color: #FFFFFF; }
+  .tm-sub { color: rgba(255,255,255,.8); font-size: var(--cds-font-size-caption); margin: var(--cds-gap-xs) 0 0; }
+  .tm-lead { font-size: var(--cds-font-size-body); margin: var(--cds-gap-sm) 0 0; color: #FFFFFF; }
+  .tm-lead b { font-weight: 700; color: #FFD2B5; }
+  .tm-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 9rem), 1fr)); gap: var(--cds-gap-md); }
+  .tm-tile { background: var(--tm-board); border-radius: var(--cds-radius); padding: var(--cds-pad-md) var(--cds-pad-lg); border: 2px solid #2B2560; box-shadow: inset 0 0 0 1px rgba(255,255,255,.04); }
+  .tm-tile-label { color: rgba(255,255,255,.72); font-size: var(--cds-font-size-caption); text-transform: uppercase; letter-spacing: .06em; }
+  .tm-board-num { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; font-weight: 700; font-size: var(--cds-font-size-title); color: var(--tm-board-ink); text-shadow: 0 0 8px rgba(255, 138, 61, .55); font-variant-numeric: tabular-nums; letter-spacing: .04em; line-height: 1.2; margin-top: var(--cds-gap-xs); }
+  .tm-board-num.tm-good { color: #6EE7A0; text-shadow: 0 0 8px rgba(110, 231, 160, .5); }
+  .tm-board-num.tm-bad { color: #FF6B78; text-shadow: 0 0 8px rgba(255, 107, 120, .5); }
+  .tm-card { background: var(--tm-card); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); border-top: 4px solid var(--tm-purple); box-shadow: 0 1px 2px rgba(16, 6, 159, .08); }
+  .tm-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--cds-gap-md); }
+  .tm-card h2 { display: flex; align-items: center; gap: var(--cds-gap-sm); font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; color: var(--tm-purple-ink); }
+  .tm-ico { width: 1.25em; height: 1.25em; flex: none; }
+  .tm-note { color: var(--tm-muted); font-size: var(--cds-font-size-caption); margin: var(--cds-gap-xs) 0 var(--cds-gap-md); }
+  .tm-wide { grid-column: 1 / -1; }
+  .tm-scroll { overflow-x: auto; }
+  .tm-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; color: var(--tm-ink); }
+  .tm-table th { text-align: left; color: #FFFFFF; background: var(--tm-purple); font-weight: var(--cds-font-weight-medium); padding: var(--cds-pad-xs) var(--cds-pad-sm); white-space: nowrap; }
+  .tm-table th:first-child { border-top-left-radius: 4px; }
+  .tm-table th:last-child { border-top-right-radius: 4px; }
+  .tm-table td { padding: var(--cds-pad-xs) var(--cds-pad-sm); border-bottom: 1px solid var(--tm-rule); white-space: nowrap; }
+  .tm-table .n { text-align: right; }
+  .tm-table tr.tm-us td { font-weight: 700; background: var(--tm-us); }
+  .tm-table tr.tm-future td { color: var(--tm-muted); }
+  .tm-good { color: var(--color-ok); }
+  .tm-bad { color: var(--color-bad); }
+  .tm-next { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs) var(--cds-gap-lg); align-items: baseline; }
+  .tm-next-opp { font-family: var(--font-anthropic-serif); font-size: var(--cds-font-size-title); font-weight: 400; color: var(--tm-purple-ink); }
+  .tm-meta { color: var(--tm-muted); font-size: var(--cds-font-size-body); }
+  .tm-legend { display: flex; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--tm-muted); margin-bottom: var(--cds-gap-sm); }
+  .tm-legend i { display: inline-block; width: .65rem; height: .65rem; border-radius: 50%; margin-right: .35rem; vertical-align: -1px; }
+  .tm-sw0 { background: var(--tm-c1); }
+  .tm-sw1 { background: var(--tm-c2); }
+  .tm-chart { position: relative; min-height: 120px; }
+  .tm-chart-s { position: relative; min-height: 240px; }
+  .tm-chart text, .tm-chart-s text { fill: var(--tm-muted); }
+  .tm-chart .tm-name { fill: var(--tm-ink); }
+  .tm-grid-line { stroke: var(--tm-rule); }
+  .tm-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; z-index: 2; }
+  .tm-tip .h { color: var(--cds-text-secondary); }
+  .tm-fail { display: flex; align-items: center; justify-content: center; gap: .4rem; min-height: inherit; color: var(--tm-muted); font-size: var(--cds-font-size-caption); }
+  .tm-fail::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+  .tm-empty { color: var(--tm-muted); font-size: var(--cds-font-size-caption); }
+  [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+  .tm-foot { color: var(--tm-muted); font-size: var(--cds-font-size-caption); }
+  .tm-pick { display: inline-flex; gap: var(--cds-gap-sm); align-items: center; font-size: var(--cds-font-size-caption); color: var(--tm-muted); margin-bottom: var(--cds-gap-md); }
+  .tm-pick select { font: inherit; color: var(--tm-ink); background: var(--tm-card); border: 2px solid var(--tm-purple); border-radius: var(--cds-radius); padding: var(--cds-pad-xs) var(--cds-pad-sm); }
+  .tm-grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: var(--cds-gap-lg); }
+  .tm-h3 { font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); margin: 0 0 var(--cds-gap-sm); color: var(--tm-purple-ink); }
+  .tm-goalie { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 8rem), 1fr)); gap: var(--cds-gap-sm); margin-top: var(--cds-gap-md); }
+  .tm-login { min-height: 100vh; align-items: center; justify-content: center; }
+  .tm-login[hidden], .tm-main[hidden] { display: none; }
+  .tm-login-card { background: var(--tm-card); border-top: 4px solid var(--tm-purple); border-radius: var(--cds-radius); padding: var(--cds-pad-xl); width: min(100%, 360px); box-sizing: border-box; text-align: center; box-shadow: 0 4px 24px rgba(16, 6, 159, .15); }
+  .tm-login-card .tm-logo { margin: 0 auto var(--cds-gap-md); display: block; }
+  .tm-login-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); color: var(--tm-purple-ink); margin: 0; }
+  .tm-login-form { display: flex; flex-direction: column; gap: var(--cds-gap-md); text-align: left; }
+  .tm-pw { font: inherit; font-size: 16px; padding: 10px 12px; border: 2px solid var(--tm-purple); border-radius: var(--cds-radius); background: var(--tm-card); color: var(--tm-ink); }
+  .tm-remember-l { font-size: var(--cds-font-size-caption); color: var(--tm-muted); display: flex; gap: 6px; align-items: center; }
+  .tm-login-btn { font: inherit; font-weight: 700; padding: 10px; border: 0; border-radius: var(--cds-radius); background: var(--tm-orange); color: #FFFFFF; cursor: pointer; }
+  .tm-login-btn:disabled { opacity: .6; cursor: wait; }
+  .tm-login-err { color: var(--color-bad); font-size: var(--cds-font-size-caption); margin: 0; }
+  .tm-logout { font: inherit; font-size: var(--cds-font-size-caption); background: none; border: 0; color: var(--tm-muted); text-decoration: underline; cursor: pointer; padding: 0; }
+</style>
+</head>
+<body>
+<script>
+  // Petite couche qui imite l'API du tableau de bord Claude pour la version publique.
+  window.dash = (() => {
+    const IDS = ['joueuses','gardiennes','matchs','classement','adversaires','gardiennes_adverses'];
+    const store = {}; const calcs = []; const draws = []; let params = {}; let ready = false;
+    const api = {
+      colors: ['#10069F', '#F26B1D'],
+      data: (id) => store[id] ? { status: 'ok', data: store[id] } : { status: ready ? 'error' : 'loading', data: [] },
+      params: () => params,
+      setParams: (p) => { params = Object.assign({}, params, p); api.redraw(); },
+      calc: (id, o) => calcs.push([id, o]),
+      draw: (name, fn) => draws.push([name, fn]),
+      redraw: () => draws.forEach(([name, fn]) => document.querySelectorAll(`[data-draw="${name}"]`).forEach((el) => { try { fn(el); } catch (e) { console.error(name, e); } })),
+    };
+    const b64 = (x) => Uint8Array.from(atob(x), (c) => c.charCodeAt(0));
+    const decrypt = async (pw, box) => {
+      const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pw), 'PBKDF2', false, ['deriveKey']);
+      const key = await crypto.subtle.deriveKey({ name: 'PBKDF2', hash: 'SHA-256', salt: b64(box.salt), iterations: box.iter }, base, { name: 'AES-GCM', length: 256 }, false, ['decrypt']);
+      const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: b64(box.iv) }, key, b64(box.data));
+      return JSON.parse(new TextDecoder().decode(plain));
+    };
+    const show = (bundle) => {
+      IDS.forEach((id) => { if (bundle[id]) store[id] = bundle[id]; });
+      try {
+        const d = new Date(bundle.meta.maj);
+        document.querySelectorAll('.tm-maj-date').forEach((el) => { el.textContent = new Intl.DateTimeFormat('fr-CA', { dateStyle: 'long', timeStyle: 'short' }).format(d); });
+      } catch (e) {}
+      ready = true;
+      calcs.forEach(([id, o]) => { try { store[id] = o.fn(...o.inputs.map((i) => store[i] || [])); } catch (e) { console.error(id, e); } });
+      document.querySelector('.tm-login').hidden = true;
+      document.querySelector('.tm-main').hidden = false;
+      api.redraw();
+    };
+    api.load = async () => {
+      const form = document.querySelector('.tm-login-form');
+      const input = document.querySelector('.tm-pw');
+      const remember = document.querySelector('.tm-remember');
+      const err = document.querySelector('.tm-login-err');
+      const btn = document.querySelector('.tm-login-btn');
+      let box;
+      try { box = await fetch('data/stats.chiffre.json', { cache: 'no-cache' }).then((r) => r.json()); }
+      catch (e) { err.hidden = false; err.textContent = 'Impossible de charger les statistiques. Réessayez plus tard.'; return; }
+      const attempt = async (pw, quiet) => {
+        btn.disabled = true;
+        try {
+          const bundle = await decrypt(pw, box);
+          try { if (remember.checked) localStorage.setItem('tm-pw', pw); } catch (e) {}
+          show(bundle);
+        } catch (e) {
+          try { localStorage.removeItem('tm-pw'); } catch (e2) {}
+          if (!quiet) { err.hidden = false; err.textContent = 'Mot de passe incorrect.'; input.select(); }
+        }
+        btn.disabled = false;
+      };
+      let saved = null;
+      try { saved = localStorage.getItem('tm-pw'); } catch (e) {}
+      if (saved) { remember.checked = true; await attempt(saved, true); }
+      form.addEventListener('submit', (ev) => { ev.preventDefault(); err.hidden = true; attempt(input.value, false); });
+      input.focus();
+    };
+    api.logout = () => { try { localStorage.removeItem('tm-pw'); } catch (e) {} location.reload(); };
+    let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(api.redraw, 150); });
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', api.redraw);
+    return api;
+  })();
+</script>
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="#F26B1D"/><path d="M6.5 7.5c3 1.5 8 1.5 11 0M6.5 16.5c3-1.5 8-1.5 11 0" fill="none" stroke="#C4500F" stroke-width="1.4" stroke-linecap="round"/><circle cx="9" cy="9" r="1.6" fill="#FFB98C"/></symbol>
+  <symbol id="i-stick" viewBox="0 0 24 24"><path d="M15 2.5 8.2 17.6" stroke="#10069F" stroke-width="2.6" stroke-linecap="round"/><path d="M8.2 17.6c-.8 1.9-2.4 2.9-4.8 2.9H2.8v-2.6h1.6c1 0 1.6-.4 2-1.2" fill="none" stroke="#10069F" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18.5" cy="18" r="3.2" fill="#F26B1D"/></symbol>
+  <symbol id="i-net" viewBox="0 0 24 24"><path d="M3 20V7.5C3 5.6 4.6 4 6.5 4h11C19.4 4 21 5.6 21 7.5V20" fill="none" stroke="#E0303F" stroke-width="2.4" stroke-linecap="round"/><path d="M6 7v13M10 5v15M14 5v15M18 7v13M4 9.5h16M4 13h16M4 16.5h16" stroke="#8C93B8" stroke-width=".9"/><path d="M1.5 20.5h21" stroke="#10069F" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-shoe" viewBox="0 0 24 24"><path d="M2.5 15.5V9.2c0-.7.6-1.2 1.3-1.1l3 .5 1.6 2.4 3-1.2c2.2 2.5 5.7 3.3 8.8 3.6.9.1 1.3.9 1.3 1.7v.4z" fill="#10069F"/><path d="M2 15.5h20.3v1.8c0 .7-.5 1.2-1.2 1.2H3.2c-.7 0-1.2-.5-1.2-1.2z" fill="#F26B1D"/><path d="M9.5 10.6l1 1.3M11.4 9.9l1 1.3M13.3 9.6l.9 1.2" stroke="#FFFFFF" stroke-width="1" stroke-linecap="round"/></symbol>
+</svg>
+
+
+<div class="tm tm-login">
+  <div class="tm-login-card">
+    <img class="tm-logo" alt="Logo des Tites mères" src="data:image/jpeg;base64,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">
+    <h1 class="tm-login-title">Les tites mères</h1>
+    <p class="tm-note">Tableau de bord de l'équipe. Entrez le mot de passe pour voir les statistiques.</p>
+    <form class="tm-login-form" autocomplete="on">
+      <input class="tm-pw" type="password" name="password" autocomplete="current-password" placeholder="Mot de passe" aria-label="Mot de passe" required>
+      <label class="tm-remember-l"><input class="tm-remember" type="checkbox"> Se souvenir sur cet appareil</label>
+      <button class="tm-login-btn" type="submit">Entrer</button>
+      <p class="tm-login-err" role="alert" hidden></p>
+    </form>
+  </div>
+</div>
+<div class="tm tm-main" hidden>
+  <header class="tm-banner" id="sommaire">
+    <svg class="tm-rink" viewBox="0 0 1000 220" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <rect x="8" y="8" width="984" height="204" rx="90" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="3"/>
+      <line x1="500" y1="8" x2="500" y2="212" stroke="#E0303F" stroke-width="7"/>
+      <line x1="330" y1="8" x2="330" y2="212" stroke="#6FA8FF" stroke-width="6"/>
+      <line x1="670" y1="8" x2="670" y2="212" stroke="#6FA8FF" stroke-width="6"/>
+      <circle cx="500" cy="110" r="52" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="3"/>
+      <circle cx="500" cy="110" r="6" fill="#E0303F"/>
+      <line x1="70" y1="20" x2="70" y2="200" stroke="#E0303F" stroke-width="3"/>
+      <line x1="930" y1="20" x2="930" y2="200" stroke="#E0303F" stroke-width="3"/>
+      <path d="M70 80 A30 30 0 0 1 70 140" fill="rgba(111,168,255,.35)" stroke="#E0303F" stroke-width="3"/>
+      <path d="M930 80 A30 30 0 0 0 930 140" fill="rgba(111,168,255,.35)" stroke="#E0303F" stroke-width="3"/>
+    </svg>
+    <div class="tm-banner-row">
+      <img class="tm-logo" alt="Logo des Tites mères" src="data:image/jpeg;base64,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">
+      <div class="tm-banner-text">
+        <h1 class="tm-title">Les tites mères</h1>
+        <p class="tm-sub">Dek Hockey St-Eustache · FP+ Jeudi · Saison Automne/Hiver 2026-2027</p>
+        <p class="tm-lead">L'équipe occupe le rang <b class="dash-skeleton" data-draw="eq-rang" data-source="classement" data-field="rang" data-where="equipe=Les tites mères">—</b> sur <b class="dash-skeleton" data-draw="nb-equipes" data-source="nb_equipes" data-field="equipes" data-row="0">—</b> avec <b class="dash-skeleton" data-draw="eq-points" data-source="classement" data-field="points" data-where="equipe=Les tites mères">—</b> points. Prochain match : <b class="dash-skeleton" data-draw="pm-date" data-source="prochain" data-field="date" data-row="0">—</b> contre <b class="dash-skeleton" data-draw="pm-adv" data-source="prochain" data-field="adversaire" data-row="0">—</b>.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="tm-tiles" id="chiffres">
+    <div class="tm-tile">
+      <div class="tm-tile-label">Rang</div>
+      <div class="tm-board-num dash-skeleton" data-draw="eq-rang" data-source="classement" data-field="rang" data-where="equipe=Les tites mères">—</div>
+    </div>
+    <div class="tm-tile">
+      <div class="tm-tile-label">Points</div>
+      <div class="tm-board-num dash-skeleton" data-draw="eq-points" data-source="classement" data-field="points" data-where="equipe=Les tites mères">—</div>
+    </div>
+    <div class="tm-tile">
+      <div class="tm-tile-label">Victoires – défaites</div>
+      <div class="tm-board-num"><span class="dash-skeleton" data-draw="eq-v" data-source="classement" data-field="v" data-where="equipe=Les tites mères">—</span>-<span class="dash-skeleton" data-draw="eq-d" data-source="classement" data-field="d" data-where="equipe=Les tites mères">—</span></div>
+    </div>
+    <div class="tm-tile">
+      <div class="tm-tile-label">Buts pour</div>
+      <div class="tm-board-num dash-skeleton" data-draw="eq-bp" data-source="classement" data-field="buts_pour" data-where="equipe=Les tites mères">—</div>
+    </div>
+    <div class="tm-tile">
+      <div class="tm-tile-label">Buts contre</div>
+      <div class="tm-board-num dash-skeleton" data-draw="eq-bc" data-source="classement" data-field="buts_contre" data-where="equipe=Les tites mères">—</div>
+    </div>
+    <div class="tm-tile">
+      <div class="tm-tile-label">Différentiel</div>
+      <div class="tm-board-num dash-skeleton" data-draw="eq-diff" data-source="classement" data-field="diff" data-where="equipe=Les tites mères">—</div>
+    </div>
+  </section>
+
+  <section class="tm-card" id="prochain-match">
+    <h2><svg class="tm-ico" aria-hidden="true"><use href="#i-shoe"/></svg>Prochain match</h2>
+    <p class="tm-note">Le premier match à venir au calendrier de l'équipe.</p>
+    <div class="tm-next">
+      <span class="tm-next-opp dash-skeleton" data-draw="pm-adv" data-source="prochain" data-field="adversaire" data-row="0">—</span>
+      <span class="tm-meta"><span class="dash-skeleton" data-draw="pm-date" data-source="prochain" data-field="date" data-row="0">—</span> à <span class="dash-skeleton" data-draw="pm-heure" data-source="prochain" data-field="heure" data-row="0">—</span></span>
+      <span class="tm-meta"><span class="dash-skeleton" data-draw="pm-lieu" data-source="prochain" data-field="lieu" data-row="0">—</span> · <span class="dash-skeleton" data-draw="pm-surface" data-source="prochain" data-field="surface" data-row="0">—</span></span>
+    </div>
+  </section>
+
+  <div class="tm-grid">
+    <section class="tm-card" id="classement">
+      <h2><svg class="tm-ico" aria-hidden="true"><use href="#i-net"/></svg>Classement FP+ Jeudi</h2>
+      <p class="tm-note">Toutes les équipes de la division, saison en cours.</p>
+      <div class="tm-scroll">
+        <table class="tm-table" data-source="classement" data-row-key="equipe">
+          <thead><tr>
+            <th data-field="rang" class="n">Rang</th><th data-field="equipe">Équipe</th><th data-field="pj" class="n">PJ</th><th data-field="v" class="n">V</th><th data-field="d" class="n">D</th><th data-field="df" class="n">DF</th><th data-field="points" class="n">PTS</th><th data-field="buts_pour" class="n">BP</th><th data-field="buts_contre" class="n">BC</th><th data-field="diff" class="n">DIFF</th><th data-field="sequence">Séq.</th>
+          </tr></thead>
+          <tbody data-draw="tb-classement"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="tm-card" id="matchs">
+      <h2><svg class="tm-ico" aria-hidden="true"><use href="#i-ball"/></svg>Matchs de la saison</h2>
+      <p class="tm-note">Résultats joués et calendrier à venir.</p>
+      <div class="tm-scroll">
+        <table class="tm-table" data-source="matchs" data-row-key="partie">
+          <thead><tr>
+            <th data-field="date">Date</th><th data-field="adversaire">Adversaire</th><th data-field="lieu">Lieu</th><th data-field="resultat">Résultat</th><th data-field="buts_pour" class="n">BP</th><th data-field="buts_contre" class="n">BC</th><th data-field="points" class="n">PTS</th>
+          </tr></thead>
+          <tbody data-draw="tb-matchs"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="tm-card" id="pointeuses">
+      <h2><svg class="tm-ico" aria-hidden="true"><use href="#i-stick"/></svg>Qui produit les points</h2>
+      <p class="tm-note">Buts et passes par joueuse, saison en cours.</p>
+      <div class="tm-legend"><span><i class="tm-sw0"></i>Buts</span><span><i class="tm-sw1"></i>Passes</span></div>
+      <div class="tm-chart" data-draw="ch-points" data-source="joueuses"></div>
+    </section>
+
+    <section class="tm-card" id="gardienne">
+      <h2><svg class="tm-ico" aria-hidden="true"><use href="#i-net"/></svg>Devant le filet</h2>
+      <p class="tm-note">Statistiques de la gardienne, saison en cours.</p>
+      <div class="tm-next"><span class="tm-next-opp dash-skeleton" data-draw="g-nom" data-source="gardiennes" data-field="gardienne" data-row="0">—</span></div>
+      <div class="tm-goalie">
+        <div class="tm-tile"><div class="tm-tile-label">Efficacité</div><div class="tm-board-num dash-skeleton" data-draw="g-eff" data-source="gardiennes" data-field="efficacite" data-row="0">—</div></div>
+        <div class="tm-tile"><div class="tm-tile-label">Moyenne</div><div class="tm-board-num dash-skeleton" data-draw="g-moy" data-source="gardiennes" data-field="moyenne" data-row="0">—</div></div>
+        <div class="tm-tile"><div class="tm-tile-label">Tirs reçus</div><div class="tm-board-num dash-skeleton" data-draw="g-tr" data-source="gardiennes" data-field="tirs_recus" data-row="0">—</div></div>
+        <div class="tm-tile"><div class="tm-tile-label">Buts accordés</div><div class="tm-board-num dash-skeleton" data-draw="g-bc" data-source="gardiennes" data-field="buts_contre" data-row="0">—</div></div>
+      </div>
+    </section>
+
+    <section class="tm-card tm-wide" id="joueuses">
+      <h2><svg class="tm-ico" aria-hidden="true"><use href="#i-stick"/></svg>Statistiques des joueuses</h2>
+      <p class="tm-note">Saison Automne/Hiver 2026-2027, triées par points.</p>
+      <div class="tm-scroll">
+        <table class="tm-table" data-source="joueuses" data-row-key="joueuse">
+          <thead><tr>
+            <th data-field="numero" class="n">#</th><th data-field="joueuse">Joueuse</th><th data-field="position">Position</th><th data-field="pj" class="n">PJ</th><th data-field="buts" class="n">B</th><th data-field="passes" class="n">A</th><th data-field="points" class="n">PTS</th><th data-field="pun" class="n">PUN</th><th data-field="buts_gagnants" class="n">BG</th><th data-field="points_par_match" class="n">PTS/PJ</th>
+          </tr></thead>
+          <tbody data-draw="tb-joueuses"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="tm-card tm-wide" id="a-surveiller">
+      <h2><svg class="tm-ico" aria-hidden="true"><use href="#i-shoe"/></svg>Joueuses à surveiller</h2>
+      <p class="tm-note">Les pointeuses et la gardienne d'une équipe adverse, saison en cours. Le prochain adversaire est choisi par défaut.</p>
+      <label class="tm-pick">Équipe adverse <select data-draw="adv-select" aria-label="Équipe adverse" data-source="classement"></select></label>
+      <div class="tm-grid2">
+        <div>
+          <h3 class="tm-h3">Pointeuses</h3>
+          <div class="tm-scroll">
+            <table class="tm-table" data-source="adversaires" data-row-key="equipe,joueuse">
+              <thead><tr>
+                <th data-field="numero" class="n">#</th><th data-field="joueuse">Joueuse</th><th data-field="pj" class="n">PJ</th><th data-field="buts" class="n">B</th><th data-field="passes" class="n">A</th><th data-field="points" class="n">PTS</th><th data-field="pun" class="n">PUN</th>
+              </tr></thead>
+              <tbody data-draw="tb-adv"></tbody>
+            </table>
+          </div>
+        </div>
+        <div>
+          <h3 class="tm-h3">Gardienne</h3>
+          <div class="tm-scroll">
+            <table class="tm-table" data-source="gardiennes_adverses" data-row-key="equipe,gardienne">
+              <thead><tr>
+                <th data-field="gardienne">Gardienne</th><th data-field="pj" class="n">PJ</th><th data-field="v" class="n">V</th><th data-field="d" class="n">D</th><th data-field="efficacite" class="n">EFF</th><th data-field="moyenne" class="n">MOY</th>
+              </tr></thead>
+              <tbody data-draw="tb-adv-g"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="tm-card tm-wide" id="top-division">
+      <h2><svg class="tm-ico" aria-hidden="true"><use href="#i-ball"/></svg>Les 10 meilleures pointeuses adverses</h2>
+      <p class="tm-note">Toutes les autres équipes de FP+ Jeudi, triées par points puis par buts.</p>
+      <div class="tm-scroll">
+        <table class="tm-table" data-source="adversaires" data-row-key="equipe,joueuse">
+          <thead><tr>
+            <th data-field="joueuse">Joueuse</th><th data-field="equipe">Équipe</th><th data-field="pj" class="n">PJ</th><th data-field="buts" class="n">B</th><th data-field="passes" class="n">A</th><th data-field="points" class="n">PTS</th><th data-field="points_par_match" class="n">PTS/PJ</th>
+          </tr></thead>
+          <tbody data-draw="tb-adv-top"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <p class="tm-foot">Source : dekhockeysteustache.com (pages publiques des équipes et du classement), mise à jour chaque semaine. <span class="tm-maj">Dernière mise à jour : <span class="tm-maj-date">—</span>.</span> <button class="tm-logout" type="button" onclick="dash.logout()">Se déconnecter</button></p>
+</div>
+
+<script>
+  const TEAM = 'Les tites mères';
+  const nf = new Intl.NumberFormat('fr-CA');
+  const nf2 = new Intl.NumberFormat('fr-CA', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const pct = new Intl.NumberFormat('fr-CA', { style: 'percent', maximumFractionDigits: 1 });
+  const dfmt = new Intl.DateTimeFormat('fr-CA', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' });
+  const fmtDate = (s) => { const d = new Date(String(s).slice(0, 10) + 'T00:00:00Z'); return isNaN(d) ? String(s) : dfmt.format(d); };
+  const signed = (v) => { const n = Number(v); return n > 0 ? '+' + nf.format(n) : nf.format(n); };
+  const isNum = (v) => v !== null && v !== undefined && v !== '' && !isNaN(Number(v));
+  const show = (v) => (v === null || v === undefined || v === '' ? '' : String(v));
+  const n0 = (v) => nf.format(Number(v));
+  const themeColors = (el) => {
+    const cs = getComputedStyle(el.closest('.tm') || el);
+    return [cs.getPropertyValue('--tm-c1').trim() || dash.colors[0], cs.getPropertyValue('--tm-c2').trim() || dash.colors[1]];
+  };
+
+  dash.calc('nb_equipes', {
+    inputs: ['classement'],
+    title: 'Équipes dans la division',
+    description: 'Le nombre d’équipes au classement FP+ Jeudi.',
+    fn: (classement) => [{ equipes: classement.length }],
+  });
+  dash.calc('prochain', {
+    inputs: ['matchs'],
+    title: 'Prochain match',
+    description: 'Le premier match « À venir » du calendrier, par date.',
+    fn: (matchs) => {
+      const a = matchs.filter((m) => m.statut === 'À venir').sort((x, y) => String(x.date).localeCompare(String(y.date)));
+      return a.length ? [a[0]] : [];
+    },
+  });
+
+  const value = (name, source, pick, fmt) => {
+    dash.draw(name, (el) => {
+      const d = dash.data(source);
+      el.classList.toggle('dash-skeleton', d.status === 'loading');
+      const v = d.status === 'ok' ? pick(d.data) : null;
+      el.classList.remove('tm-good', 'tm-bad');
+      if (v === null || v === undefined || v === '') { el.textContent = '—'; return; }
+      el.textContent = fmt ? fmt(v) : String(v);
+    });
+  };
+  const ours = (rows) => rows.find((r) => r.equipe === TEAM);
+  const teamField = (f) => (rows) => { const r = ours(rows); return r ? r[f] : null; };
+  const first = (f) => (rows) => (rows[0] ? rows[0][f] : null);
+
+  value('eq-rang', 'classement', teamField('rang'), n0);
+  value('eq-points', 'classement', teamField('points'), n0);
+  value('eq-v', 'classement', teamField('v'), n0);
+  value('eq-d', 'classement', teamField('d'), n0);
+  value('eq-bp', 'classement', teamField('buts_pour'), n0);
+  value('eq-bc', 'classement', teamField('buts_contre'), n0);
+  dash.draw('eq-diff', (el) => {
+    const d = dash.data('classement');
+    el.classList.toggle('dash-skeleton', d.status === 'loading');
+    const r = d.status === 'ok' ? ours(d.data) : null;
+    el.classList.remove('tm-good', 'tm-bad');
+    if (!r || !isNum(r.diff)) { el.textContent = '—'; return; }
+    const n = Number(r.diff);
+    el.textContent = signed(n);
+    if (n > 0) el.classList.add('tm-good');
+    if (n < 0) el.classList.add('tm-bad');
+  });
+  value('nb-equipes', 'nb_equipes', first('equipes'), n0);
+  value('pm-date', 'prochain', first('date'), fmtDate);
+  value('pm-adv', 'prochain', first('adversaire'));
+  value('pm-heure', 'prochain', first('heure'));
+  value('pm-lieu', 'prochain', first('lieu'));
+  value('pm-surface', 'prochain', first('surface'));
+  value('g-nom', 'gardiennes', first('gardienne'));
+  value('g-eff', 'gardiennes', first('efficacite'), (v) => pct.format(Number(v)));
+  value('g-moy', 'gardiennes', first('moyenne'), (v) => nf2.format(Number(v)));
+  value('g-tr', 'gardiennes', first('tirs_recus'), n0);
+  value('g-bc', 'gardiennes', first('buts_contre'), n0);
+
+  const fillTable = (name, source, cols, rowClass, keyCol) => {
+    dash.draw(name, (tb) => {
+      const d = dash.data(source);
+      tb.replaceChildren();
+      if (d.status !== 'ok') return;
+      d.data.forEach((r) => {
+        const tr = document.createElement('tr');
+        if (keyCol) tr.dataset.key = String(r[keyCol]);
+        const c = rowClass ? rowClass(r) : '';
+        if (c) tr.className = c;
+        cols.forEach(([f, fmt, num]) => {
+          const td = document.createElement('td');
+          if (num) td.className = 'n';
+          const v = r[f];
+          td.textContent = fmt ? (v === null || v === undefined || v === '' ? '' : fmt(v, r)) : show(v);
+          if (f === 'diff' && isNum(v) && Number(v) !== 0) td.classList.add(Number(v) > 0 ? 'tm-good' : 'tm-bad');
+          tr.appendChild(td);
+        });
+        tb.appendChild(tr);
+      });
+    });
+  };
+  fillTable('tb-classement', 'classement', [
+    ['rang', n0, true], ['equipe'], ['pj', n0, true], ['v', n0, true], ['d', n0, true], ['df', n0, true],
+    ['points', n0, true], ['buts_pour', n0, true], ['buts_contre', n0, true], ['diff', signed, true], ['sequence', (v) => String(v).toUpperCase()],
+  ], (r) => (r.equipe === TEAM ? 'tm-us' : ''));
+  fillTable('tb-matchs', 'matchs', [
+    ['date', fmtDate], ['adversaire'], ['lieu'], ['resultat', (v) => String(v)],
+    ['buts_pour', n0, true], ['buts_contre', n0, true], ['points', n0, true],
+  ], (r) => (r.statut === 'À venir' ? 'tm-future' : ''), 'partie');
+  fillTable('tb-joueuses', 'joueuses', [
+    ['numero', null, true], ['joueuse'], ['position'], ['pj', n0, true], ['buts', n0, true], ['passes', n0, true],
+    ['points', n0, true], ['pun', n0, true], ['buts_gagnants', n0, true], ['points_par_match', (v) => nf2.format(Number(v)), true],
+  ]);
+
+  const advKey = (r, f) => encodeURIComponent(String(r.equipe)) + ',' + encodeURIComponent(String(r[f]));
+  const advChoice = () => {
+    const p = dash.params().adversaire;
+    if (p) return p;
+    const n = dash.data('prochain');
+    return n.status === 'ok' && n.data[0] ? String(n.data[0].adversaire) : null;
+  };
+  dash.draw('adv-select', (sel) => {
+    const d = dash.data('classement');
+    const teams = d.status === 'ok' ? d.data.map((r) => String(r.equipe)).filter((e) => e !== TEAM) : [];
+    sel.replaceChildren(...teams.map((e) => new Option(e, e)));
+    const cur = advChoice();
+    if (cur && teams.includes(cur)) sel.value = cur;
+    sel.onchange = () => dash.setParams({ adversaire: sel.value || null });
+  });
+  const emptyRow = (tb, cols, text) => {
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.colSpan = cols;
+    td.className = 'tm-empty';
+    td.textContent = text;
+    tr.appendChild(td);
+    tb.appendChild(tr);
+  };
+  const rowOf = (tb, key, cells) => {
+    const tr = document.createElement('tr');
+    tr.dataset.key = key;
+    cells.forEach(([v, num]) => {
+      const td = document.createElement('td');
+      if (num) td.className = 'n';
+      td.textContent = show(v);
+      tr.appendChild(td);
+    });
+    tb.appendChild(tr);
+  };
+  dash.draw('tb-adv', (tb) => {
+    const d = dash.data('adversaires');
+    tb.replaceChildren();
+    if (d.status !== 'ok') return;
+    const team = advChoice();
+    const rows = d.data.filter((r) => String(r.equipe) === team && Number(r.points) > 0)
+      .sort((a, b) => Number(b.points) - Number(a.points) || Number(b.buts) - Number(a.buts));
+    if (!rows.length) { emptyRow(tb, 7, 'Aucune pointeuse encore pour cette équipe.'); return; }
+    rows.forEach((r) => rowOf(tb, advKey(r, 'joueuse'), [[r.numero, true], [r.joueuse], [n0(r.pj), true], [n0(r.buts), true], [n0(r.passes), true], [n0(r.points), true], [n0(r.pun), true]]));
+  });
+  dash.draw('tb-adv-g', (tb) => {
+    const d = dash.data('gardiennes_adverses');
+    tb.replaceChildren();
+    if (d.status !== 'ok') return;
+    const team = advChoice();
+    const rows = d.data.filter((r) => String(r.equipe) === team).sort((a, b) => Number(b.pj) - Number(a.pj));
+    if (!rows.length) { emptyRow(tb, 6, 'Aucune gardienne inscrite pour cette équipe.'); return; }
+    rows.forEach((r) => rowOf(tb, advKey(r, 'gardienne'), [[r.gardienne], [n0(r.pj), true], [n0(r.v), true], [n0(r.d), true], [pct.format(Number(r.efficacite)), true], [nf2.format(Number(r.moyenne)), true]]));
+  });
+  dash.draw('tb-adv-top', (tb) => {
+    const d = dash.data('adversaires');
+    tb.replaceChildren();
+    if (d.status !== 'ok') return;
+    const rows = d.data.filter((r) => Number(r.points) > 0)
+      .sort((a, b) => Number(b.points) - Number(a.points) || Number(b.buts) - Number(a.buts) || Number(a.pj) - Number(b.pj))
+      .slice(0, 10);
+    rows.forEach((r) => rowOf(tb, advKey(r, 'joueuse'), [[r.joueuse], [r.equipe], [n0(r.pj), true], [n0(r.buts), true], [n0(r.passes), true], [n0(r.points), true], [nf2.format(Number(r.points_par_match)), true]]));
+  });
+
+  const failLine = (el) => {
+    const f = document.createElement('div');
+    f.className = 'tm-fail';
+    f.textContent = 'Failed to load';
+    el.appendChild(f);
+  };
+  const tipFor = (el) => {
+    const t = document.createElement('div');
+    t.className = 'tm-tip';
+    t.hidden = true;
+    el.appendChild(t);
+    return {
+      show(ev, head, lines) {
+        t.replaceChildren();
+        const h = document.createElement('div'); h.className = 'h'; h.textContent = head; t.appendChild(h);
+        lines.forEach(([color, label, val]) => {
+          const l = document.createElement('div');
+          const sw = document.createElement('i');
+          sw.style.cssText = `display:inline-block;width:.55rem;height:.55rem;border-radius:50%;margin-right:.35rem;background:${color}`;
+          l.appendChild(sw);
+          l.appendChild(document.createTextNode(`${label} : ${val}`));
+          t.appendChild(l);
+        });
+        t.hidden = false;
+        const box = el.getBoundingClientRect();
+        let x = ev.clientX - box.left + 12, y = ev.clientY - box.top + 12;
+        const w = t.offsetWidth, hgt = t.offsetHeight;
+        if (x + w > box.width) x = Math.max(0, ev.clientX - box.left - w - 12);
+        if (y + hgt > box.height) y = Math.max(0, box.height - hgt);
+        t.style.left = x + 'px'; t.style.top = y + 'px';
+      },
+      hide() { t.hidden = true; },
+    };
+  };
+
+  dash.draw('ch-points', (el) => {
+    const d = dash.data('joueuses');
+    el.replaceChildren();
+    el.classList.toggle('dash-skeleton', d.status === 'loading');
+    if (d.status === 'error') { failLine(el); return; }
+    if (d.status !== 'ok') return;
+    const [c1, c2] = themeColors(el);
+    const rows = d.data.map((r) => ({ nom: String(r.joueuse), b: Number(r.buts) || 0, a: Number(r.passes) || 0 }))
+      .filter((r) => r.b + r.a > 0).sort((x, y) => (y.b + y.a) - (x.b + x.a) || y.b - x.b);
+    if (!rows.length) {
+      const p = document.createElement('div'); p.className = 'tm-empty'; p.textContent = 'Aucun point encore cette saison.'; el.appendChild(p); return;
+    }
+    const W = Math.max(280, el.clientWidth || 400);
+    const rowH = 30, top = 4, bottom = 22;
+    const H = top + rows.length * rowH + bottom;
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).style('display', 'block');
+    const meas = svg.append('g').attr('font-size', 12);
+    let left = 0;
+    rows.forEach((r) => { const t = meas.append('text').text(r.nom); left = Math.max(left, t.node().getComputedTextLength()); t.remove(); });
+    meas.remove();
+    left = Math.min(left + 10, W * 0.45);
+    const max = d3.max(rows, (r) => r.b + r.a);
+    const x = d3.scaleLinear([0, max], [left, W - 20]);
+    const y = d3.scaleBand(rows.map((r) => r.nom), [top, top + rows.length * rowH]).padding(0.3);
+    const ticks = Math.min(max, Math.max(2, Math.floor((W - left) / 60)));
+    const tv = x.ticks(ticks).filter(Number.isInteger);
+    svg.append('g').selectAll('line').data(tv).join('line').attr('class', 'tm-grid-line')
+      .attr('x1', (v) => x(v)).attr('x2', (v) => x(v)).attr('y1', top).attr('y2', H - bottom);
+    svg.append('g').selectAll('text').data(tv).join('text')
+      .attr('x', (v) => x(v)).attr('y', H - 6).attr('text-anchor', 'middle').attr('font-size', 11).text((v) => nf.format(v));
+    svg.append('g').selectAll('text').data(rows).join('text').attr('class', 'tm-name')
+      .attr('x', left - 8).attr('y', (r) => y(r.nom) + y.bandwidth() / 2).attr('dy', '0.35em')
+      .attr('text-anchor', 'end').attr('font-size', 12).text((r) => r.nom);
+    const tip = tipFor(el);
+    const g = svg.append('g').selectAll('g').data(rows).join('g');
+    g.append('rect').attr('x', x(0)).attr('y', (r) => y(r.nom)).attr('height', y.bandwidth())
+      .attr('width', (r) => x(r.b) - x(0)).attr('fill', c1).attr('rx', 3);
+    g.append('rect').attr('x', (r) => x(r.b)).attr('y', (r) => y(r.nom)).attr('height', y.bandwidth())
+      .attr('width', (r) => x(r.b + r.a) - x(r.b)).attr('fill', c2).attr('rx', 3);
+    g.append('rect').attr('x', 0).attr('y', (r) => y(r.nom) - 4).attr('width', W).attr('height', y.bandwidth() + 8).attr('fill', 'transparent')
+      .on('mousemove', (ev, r) => tip.show(ev, r.nom, [[c1, 'Buts', nf.format(r.b)], [c2, 'Passes', nf.format(r.a)]]))
+      .on('mouseleave', () => tip.hide());
+  });
+
+  dash.load();
+</script>
+</body>
+</html>
