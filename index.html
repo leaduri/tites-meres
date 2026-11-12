@@ -91,6 +91,10 @@
   .tm-next { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs) var(--cds-gap-lg); align-items: baseline; }
   .tm-next-opp { font-family: var(--font-anthropic-serif); font-size: var(--cds-font-size-title); font-weight: 400; color: var(--tm-purple-ink); }
   .tm-meta { color: var(--tm-muted); font-size: var(--cds-font-size-body); }
+  .tm-jersey { font-weight: 700; white-space: nowrap; }
+  .tm-jersey-bleu::before, .tm-jersey-rose::before { content: ""; display: inline-block; vertical-align: -.05em; width: .8em; height: .8em; margin-right: .35em; border-radius: 50%; background: currentColor; }
+  .tm-jersey-bleu, .tm .tm-table td.tm-jersey-bleu { color: #1D5FD6; }
+  .tm-jersey-rose, .tm .tm-table td.tm-jersey-rose { color: #E0408F; }
   .tm-legend { display: flex; gap: var(--cds-gap-md); font-size: var(--cds-font-size-caption); color: var(--tm-muted); margin-bottom: var(--cds-gap-sm); }
   .tm-legend i { display: inline-block; width: .65rem; height: .65rem; border-radius: 50%; margin-right: .35rem; vertical-align: -1px; }
   .tm-sw0 { background: var(--tm-c1); }
@@ -274,6 +278,7 @@
       <span class="tm-next-opp dash-skeleton" data-draw="pm-adv" data-source="prochain" data-field="adversaire" data-row="0">—</span>
       <span class="tm-meta"><span class="dash-skeleton" data-draw="pm-date" data-source="prochain" data-field="date" data-row="0">—</span> à <span class="dash-skeleton" data-draw="pm-heure" data-source="prochain" data-field="heure" data-row="0">—</span></span>
       <span class="tm-meta"><span class="dash-skeleton" data-draw="pm-lieu" data-source="prochain" data-field="lieu" data-row="0">—</span> · <span class="dash-skeleton" data-draw="pm-surface" data-source="prochain" data-field="surface" data-row="0">—</span></span>
+      <span class="tm-meta">Chandail <span class="tm-jersey dash-skeleton" data-draw="pm-chandail" data-source="prochain" data-field="lieu" data-row="0">—</span></span>
     </div>
   </section>
 
@@ -297,7 +302,7 @@
       <div class="tm-scroll">
         <table class="tm-table" data-source="matchs" data-row-key="partie">
           <thead><tr>
-            <th data-field="date">Date</th><th data-field="adversaire">Adversaire</th><th data-field="lieu">Lieu</th><th data-field="resultat">Résultat</th><th data-field="buts_pour" class="n">BP</th><th data-field="buts_contre" class="n">BC</th><th data-field="points" class="n">PTS</th>
+            <th data-field="date">Date</th><th data-field="adversaire">Adversaire</th><th data-field="lieu">Lieu</th><th>Chandail</th><th data-field="resultat">Résultat</th><th data-field="buts_pour" class="n">BP</th><th data-field="buts_contre" class="n">BC</th><th data-field="points" class="n">PTS</th>
           </tr></thead>
           <tbody data-draw="tb-matchs"></tbody>
         </table>
@@ -395,6 +400,11 @@
   const isNum = (v) => v !== null && v !== undefined && v !== '' && !isNaN(Number(v));
   const show = (v) => (v === null || v === undefined || v === '' ? '' : String(v));
   const n0 = (v) => nf.format(Number(v));
+  // Règle de l'équipe : chandail bleu quand on est l'équipe locale, rose quand on visite
+  // (à l'horaire, la première équipe inscrite est celle qui visite).
+  const LIEU = (v) => (v === 'Domicile' ? 'Local' : String(v));
+  const CHANDAIL = (lieu) => (lieu === 'Domicile' ? 'Bleu' : lieu === 'Visiteur' ? 'Rose' : '');
+  const CHANDAIL_CLS = (lieu) => { const c = CHANDAIL(lieu); return c ? 'tm-jersey tm-jersey-' + c.toLowerCase() : ''; };
   const themeColors = (el) => {
     const cs = getComputedStyle(el.closest('.tm') || el);
     return [cs.getPropertyValue('--tm-c1').trim() || dash.colors[0], cs.getPropertyValue('--tm-c2').trim() || dash.colors[1]];
@@ -451,7 +461,17 @@
   value('pm-date', 'prochain', first('date'), fmtDate);
   value('pm-adv', 'prochain', first('adversaire'));
   value('pm-heure', 'prochain', first('heure'));
-  value('pm-lieu', 'prochain', first('lieu'));
+  value('pm-lieu', 'prochain', first('lieu'), LIEU);
+  dash.draw('pm-chandail', (el) => {
+    const d = dash.data('prochain');
+    el.classList.toggle('dash-skeleton', d.status === 'loading');
+    el.classList.remove('tm-jersey-bleu', 'tm-jersey-rose');
+    const lieu = d.status === 'ok' && d.data[0] ? d.data[0].lieu : null;
+    const c = CHANDAIL(lieu);
+    if (!c) { el.textContent = '—'; return; }
+    el.textContent = c.toLowerCase();
+    el.classList.add('tm-jersey-' + c.toLowerCase());
+  });
   value('pm-surface', 'prochain', first('surface'));
   value('g-nom', 'gardiennes', first('gardienne'));
   value('g-eff', 'gardiennes', first('efficacite'), (v) => pct.format(Number(v)));
@@ -469,12 +489,13 @@
         if (keyCol) tr.dataset.key = String(r[keyCol]);
         const c = rowClass ? rowClass(r) : '';
         if (c) tr.className = c;
-        cols.forEach(([f, fmt, num]) => {
+        cols.forEach(([f, fmt, num, cls]) => {
           const td = document.createElement('td');
           if (num) td.className = 'n';
           const v = r[f];
           td.textContent = fmt ? (v === null || v === undefined || v === '' ? '' : fmt(v, r)) : show(v);
           if (f === 'diff' && isNum(v) && Number(v) !== 0) td.classList.add(Number(v) > 0 ? 'tm-good' : 'tm-bad');
+          if (cls) { const k = cls(v, r); if (k) td.classList.add(...k.split(' ')); }
           tr.appendChild(td);
         });
         tb.appendChild(tr);
@@ -486,7 +507,7 @@
     ['points', n0, true], ['buts_pour', n0, true], ['buts_contre', n0, true], ['diff', signed, true], ['sequence', (v) => String(v).toUpperCase()],
   ], (r) => (r.equipe === TEAM ? 'tm-us' : ''));
   fillTable('tb-matchs', 'matchs', [
-    ['date', fmtDate], ['adversaire'], ['lieu'], ['resultat', (v) => String(v)],
+    ['date', fmtDate], ['adversaire'], ['lieu', LIEU], ['lieu', CHANDAIL, false, CHANDAIL_CLS], ['resultat', (v) => String(v)],
     ['buts_pour', n0, true], ['buts_contre', n0, true], ['points', n0, true],
   ], (r) => (r.statut === 'À venir' ? 'tm-future' : ''), 'partie');
   fillTable('tb-joueuses', 'joueuses', [
